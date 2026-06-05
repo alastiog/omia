@@ -4,331 +4,163 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>Omia Laboratori Biotech – Gratta & Vinci</title>
+<title>Omia Laboratori Biotech – Gratta &amp; Vinci</title>
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;600;700&display=swap");
 
-  :root {
-    --omia-dark: #3d3f42;
-    --omia-mid: #6b6f74;
-    --omia-light: #f5f4f0;
-    --omia-green: #7a9e7e;
-    --omia-green-dark: #5a7a5e;
-    --omia-cream: #f0ede6;
-    --omia-gold: #c8a96e;
-    --omia-white: #ffffff;
-  }
+:root {
+  --dark:#3d3f42; --mid:#6b6f74; --light:#f5f4f0;
+  --green:#7a9e7e; --green-dk:#5a7a5e;
+  --cream:#f0ede6; --gold:#c8a96e; --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{font-family:"Inter",sans-serif;background:var(--light);color:var(--dark);
+  min-height:100vh;display:flex;flex-direction:column;overscroll-behavior:none;}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+/* HEADER */
+header{background:var(--white);padding:18px 20px;display:flex;align-items:center;
+  justify-content:center;border-bottom:1px solid #e0ddd6;
+  box-shadow:0 2px 12px rgba(61,63,66,.06);}
+header img{height:52px;width:auto;display:block;}
 
-  html, body {
-    font-family: "Inter", sans-serif;
-    background-color: var(--omia-light);
-    color: var(--omia-dark);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overscroll-behavior: none;
-  }
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--dark) 0%,#4a5240 55%,var(--green-dk) 100%);
+  padding:36px 24px 32px;text-align:center;position:relative;overflow:hidden;}
+.hero-badge{display:inline-block;background:var(--green);color:#fff;font-size:10px;
+  font-weight:600;letter-spacing:3px;text-transform:uppercase;padding:5px 18px;
+  border-radius:20px;margin-bottom:16px;}
+.hero h1{font-family:"Montserrat",sans-serif;font-weight:300;
+  font-size:clamp(22px,6vw,34px);color:#fff;letter-spacing:1px;
+  margin-bottom:10px;line-height:1.25;}
+.hero h1 strong{font-weight:700;color:#c8dfc0;}
+.hero p{color:#b8c4b0;font-size:13px;font-weight:300;max-width:360px;
+  margin:0 auto;line-height:1.7;}
 
-  /* HEADER */
-  header {
-    background: var(--omia-white);
-    padding: 18px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #e0ddd6;
-    box-shadow: 0 2px 12px rgba(61,63,66,0.06);
-  }
+/* PRODUCTS STRIP */
+.products-strip{background:var(--cream);padding:24px 16px;display:flex;
+  align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.product-card{text-align:center;}
+.product-img-wrap{width:80px;height:100px;margin:0 auto 8px;display:flex;
+  align-items:center;justify-content:center;background:#fff;border-radius:12px;
+  box-shadow:0 4px 14px rgba(61,63,66,.10);overflow:hidden;padding:8px;}
+.product-img-wrap svg{width:54px;height:80px;}
+.product-label{font-size:10px;font-weight:500;letter-spacing:2px;
+  text-transform:uppercase;color:var(--mid);}
+.strip-text{max-width:190px;text-align:center;}
+.strip-text h3{font-family:"Montserrat",sans-serif;font-weight:600;font-size:14px;
+  color:var(--dark);margin-bottom:5px;line-height:1.3;}
+.strip-text p{font-size:12px;color:var(--mid);line-height:1.6;}
 
-  header img {
-    height: 52px;
-    width: auto;
-    display: block;
-  }
+/* GAME SECTION */
+.game-section{flex:1;padding:32px 16px 40px;display:flex;
+  flex-direction:column;align-items:center;}
+.game-section h2{font-family:"Montserrat",sans-serif;font-weight:300;font-size:21px;
+  letter-spacing:1px;color:var(--dark);margin-bottom:4px;text-align:center;}
+.game-section h2 strong{font-weight:700;}
+.game-subtitle{font-size:12px;color:var(--mid);margin-bottom:16px;
+  text-align:center;}
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, var(--omia-dark) 0%, #4a5240 55%, var(--omia-green-dark) 100%);
-    padding: 36px 24px 32px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: "";
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width=60 height=60 viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx=30 cy=30 r=4 fill=white fill-opacity=0.03/%3E%3C/svg%3E");
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: var(--omia-green);
-    color: white;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 5px 18px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: clamp(24px, 6vw, 36px);
-    color: var(--omia-white);
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    line-height: 1.25;
-  }
-  .hero h1 strong { font-weight: 700; color: #c8dfc0; }
-  .hero p {
-    color: #b8c4b0;
-    font-size: 13px;
-    font-weight: 300;
-    max-width: 360px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
+/* COUNTER */
+.counter-bar{display:flex;align-items:center;gap:8px;margin-bottom:22px;
+  background:#fff;border-radius:30px;padding:9px 22px;
+  box-shadow:0 2px 10px rgba(61,63,66,.08);font-size:13px;
+  color:var(--mid);font-weight:500;}
+.counter-dot{width:8px;height:8px;border-radius:50%;background:var(--green);}
+#wins-left{font-weight:700;color:var(--green-dk);font-size:16px;}
 
-  /* PRODUCTS STRIP */
-  .products-strip {
-    background: var(--omia-cream);
-    padding: 28px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .product-card { text-align: center; }
-  .product-img-wrap {
-    width: 90px; height: 112px;
-    margin: 0 auto 10px;
-    display: flex; align-items: center; justify-content: center;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(61,63,66,0.10);
-    overflow: hidden; padding: 10px;
-  }
-  .product-img-wrap svg { width: 60px; height: 90px; }
-  .product-label {
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--omia-mid);
-  }
-  .strip-text { max-width: 200px; text-align: center; }
-  .strip-text h3 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600; font-size: 15px;
-    color: var(--omia-dark); margin-bottom: 6px; line-height: 1.3;
-  }
-  .strip-text p { font-size: 12px; color: var(--omia-mid); line-height: 1.65; }
+/* SCRATCH CARD */
+.scratch-wrapper{position:relative;width:min(340px,92vw);margin-bottom:16px;
+  touch-action:none;}
+.scratch-card{width:100%;height:210px;border-radius:20px;
+  background:linear-gradient(135deg,#e0eeda 0%,#c8dfc0 100%);
+  position:relative;overflow:hidden;
+  box-shadow:0 8px 28px rgba(61,63,66,.15),inset 0 1px 0 rgba(255,255,255,.5);
+  display:flex;align-items:center;justify-content:center;touch-action:none;}
+.prize-area{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+  pointer-events:none;user-select:none;}
+.prize-icon{font-size:44px;line-height:1;}
+.prize-text{font-family:"Montserrat",sans-serif;font-weight:700;font-size:15px;
+  letter-spacing:3px;text-transform:uppercase;color:var(--dark);}
+.prize-sub{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--mid);font-weight:500;}
+#scratch-canvas{position:absolute;top:0;left:0;border-radius:20px;
+  touch-action:none;cursor:crosshair;}
 
-  /* GAME SECTION */
-  .game-section {
-    flex: 1;
-    padding: 36px 16px 40px;
-    display: flex; flex-direction: column; align-items: center;
-  }
-  .game-section h2 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300; font-size: 22px;
-    letter-spacing: 1px; color: var(--omia-dark);
-    margin-bottom: 4px; text-align: center;
-  }
-  .game-section h2 strong { font-weight: 700; }
-  .game-subtitle {
-    font-size: 12px; color: var(--omia-mid);
-    margin-bottom: 18px; text-align: center; letter-spacing: 0.3px;
-  }
+/* HINT */
+.scratch-hint{font-size:11px;color:var(--mid);letter-spacing:1px;
+  margin-bottom:18px;text-transform:uppercase;font-weight:500;opacity:.7;}
 
-  /* COUNTER */
-  .counter-bar {
-    display: flex; align-items: center; gap: 8px;
-    margin-bottom: 24px;
-    background: white; border-radius: 30px;
-    padding: 9px 22px;
-    box-shadow: 0 2px 10px rgba(61,63,66,0.08);
-    font-size: 13px; color: var(--omia-mid); font-weight: 500;
-  }
-  .counter-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--omia-green); }
-  #wins-left { font-weight: 700; color: var(--omia-green-dark); font-size: 16px; }
+/* BUTTON */
+.btn-play{background:linear-gradient(135deg,var(--dark) 0%,var(--mid) 100%);
+  color:#fff;border:none;padding:15px 44px;border-radius:50px;
+  font-family:"Montserrat",sans-serif;font-weight:600;font-size:12px;
+  letter-spacing:3px;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 4px 18px rgba(61,63,66,.22);margin-bottom:10px;
+  min-height:50px;-webkit-appearance:none;transition:opacity .2s,transform .15s;}
+.btn-play:active{transform:scale(.97);}
+.btn-play:disabled{opacity:.35;cursor:not-allowed;transform:none;}
+.play-note{font-size:11px;color:#aaa;text-align:center;}
 
-  /* SCRATCH CARD */
-  .scratch-wrapper {
-    position: relative;
-    width: min(340px, 92vw);
-    margin-bottom: 20px;
-    touch-action: none;
-  }
-  .scratch-card {
-    width: 100%; height: 210px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #e0eeda 0%, #c8dfc0 100%);
-    position: relative; overflow: hidden;
-    box-shadow: 0 8px 28px rgba(61,63,66,0.15), inset 0 1px 0 rgba(255,255,255,0.5);
-    display: flex; align-items: center; justify-content: center;
-    touch-action: none;
-  }
-  .prize-area {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px; pointer-events: none; user-select: none;
-  }
-  .prize-icon { font-size: 46px; line-height: 1; }
-  .prize-text {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700; font-size: 16px;
-    letter-spacing: 3px; text-transform: uppercase;
-    color: var(--omia-dark);
-  }
-  .prize-sub {
-    font-size: 10px; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--omia-mid); font-weight: 500;
-  }
-  #scratch-canvas {
-    position: absolute; top: 0; left: 0;
-    border-radius: 20px;
-    touch-action: none;
-    cursor: crosshair;
-  }
+/* LOSE */
+.lose-msg{display:none;margin-top:16px;text-align:center;
+  animation:fadeIn .5s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.lose-msg p{font-size:13px;color:var(--mid);line-height:1.6;}
+.lose-msg strong{color:var(--dark);font-weight:600;}
 
-  /* HINT */
-  .scratch-hint {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 11px; color: var(--omia-mid);
-    letter-spacing: 1px; margin-bottom: 20px;
-    text-transform: uppercase; font-weight: 500;
-    opacity: 0.75;
-  }
+/* WIN MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;
+  background:rgba(20,25,20,.78);z-index:1000;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);padding:20px;}
+.modal-overlay.show{display:flex;}
+.modal{background:#fff;border-radius:24px;padding:38px 26px 28px;
+  max-width:380px;width:100%;text-align:center;
+  box-shadow:0 24px 80px rgba(0,0,0,.3);
+  animation:modalPop .4s cubic-bezier(.34,1.56,.64,1);}
+@keyframes modalPop{from{transform:scale(.72);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-emoji{font-size:52px;margin-bottom:12px;
+  animation:bounce .9s ease infinite alternate;}
+@keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-7px)}}
+.modal-stars{color:var(--gold);font-size:20px;margin-bottom:12px;letter-spacing:4px;}
+.modal h2{font-family:"Montserrat",sans-serif;font-weight:800;
+  font-size:clamp(26px,8vw,36px);letter-spacing:2px;text-transform:uppercase;
+  color:var(--dark);margin-bottom:8px;}
+.modal p{font-size:13px;color:var(--mid);line-height:1.7;margin-bottom:18px;}
+.win-code-label{font-size:10px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--mid);margin-bottom:5px;}
+.win-code{background:var(--cream);border:1.5px dashed var(--green);
+  border-radius:12px;padding:14px 16px;margin-bottom:20px;
+  font-family:"Montserrat",sans-serif;
+  font-size:clamp(18px,5.5vw,24px);font-weight:700;
+  letter-spacing:5px;color:var(--green-dk);}
+.btn-close{background:var(--green);color:#fff;border:none;padding:14px 40px;
+  border-radius:50px;font-family:"Montserrat",sans-serif;font-weight:600;
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+  width:100%;min-height:50px;-webkit-appearance:none;transition:background .2s;}
+.btn-close:active{background:var(--green-dk);}
 
-  /* BUTTON */
-  .btn-play {
-    background: linear-gradient(135deg, var(--omia-dark) 0%, var(--omia-mid) 100%);
-    color: white; border: none;
-    padding: 15px 44px;
-    border-radius: 50px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600; font-size: 12px;
-    letter-spacing: 3px; text-transform: uppercase;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 18px rgba(61,63,66,0.22);
-    margin-bottom: 10px;
-    -webkit-appearance: none;
-    min-height: 50px;
-  }
-  .btn-play:active { transform: scale(0.97); }
-  .btn-play:disabled { opacity: 0.38; cursor: not-allowed; transform: none; }
-  .play-note { font-size: 11px; color: #aaa; text-align: center; letter-spacing: 0.3px; }
+/* EXHAUSTED */
+.exhausted-banner{display:none;background:#fff;border:1.5px solid #ddd;
+  border-radius:16px;padding:28px 24px;text-align:center;max-width:340px;margin:0 auto;}
+.exhausted-banner.show{display:block;}
+.exhausted-banner h3{font-family:"Montserrat",sans-serif;font-weight:700;
+  font-size:18px;color:var(--dark);margin-bottom:8px;}
+.exhausted-banner p{font-size:13px;color:var(--mid);line-height:1.6;}
 
-  /* LOSE MESSAGE */
-  .lose-msg {
-    display: none; margin-top: 18px; text-align: center;
-    animation: fadeIn 0.5s ease;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .lose-msg p { font-size: 13px; color: var(--omia-mid); line-height: 1.6; }
-  .lose-msg strong { color: var(--omia-dark); font-weight: 600; }
+/* SPARKS */
+.sparks{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:20px;}
+.spark{position:absolute;border-radius:50%;opacity:0;}
+@keyframes sparkle{
+  0%{opacity:1;transform:scale(0) translate(0px,0px);}
+  100%{opacity:0;transform:scale(1.5) translate(var(--tx),var(--ty));}
+}
 
-  /* WIN MODAL */
-  .modal-overlay {
-    display: none; position: fixed; inset: 0;
-    background: rgba(20,25,20,0.78);
-    z-index: 1000; align-items: center; justify-content: center;
-    backdrop-filter: blur(6px); padding: 20px;
-  }
-  .modal-overlay.show { display: flex; }
-  .modal {
-    background: white; border-radius: 24px;
-    padding: 40px 28px 30px;
-    max-width: 380px; width: 100%; text-align: center;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
-    animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  @keyframes modalPop {
-    from { transform: scale(0.72); opacity: 0; }
-    to   { transform: scale(1); opacity: 1; }
-  }
-  .modal-emoji { font-size: 52px; margin-bottom: 12px; animation: bounce 0.9s ease infinite alternate; }
-  @keyframes bounce {
-    from { transform: translateY(0); }
-    to   { transform: translateY(-7px); }
-  }
-  .modal-stars { color: var(--omia-gold); font-size: 20px; margin-bottom: 12px; letter-spacing: 4px; }
-  .modal h2 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800; font-size: clamp(28px, 8vw, 38px);
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--omia-dark); margin-bottom: 8px;
-  }
-  .modal p { font-size: 13px; color: var(--omia-mid); line-height: 1.7; margin-bottom: 20px; }
-  .win-code-label {
-    font-size: 10px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--omia-mid); margin-bottom: 6px;
-  }
-  .win-code {
-    background: var(--omia-cream);
-    border: 1.5px dashed var(--omia-green);
-    border-radius: 12px; padding: 14px 20px;
-    margin-bottom: 22px;
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(20px, 6vw, 26px);
-    font-weight: 700; letter-spacing: 6px;
-    color: var(--omia-green-dark);
-  }
-  .btn-close {
-    background: var(--omia-green); color: white;
-    border: none; padding: 14px 40px;
-    border-radius: 50px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600; font-size: 12px;
-    letter-spacing: 2px; text-transform: uppercase;
-    cursor: pointer; width: 100%;
-    min-height: 50px; -webkit-appearance: none;
-    transition: background 0.2s;
-  }
-  .btn-close:active { background: var(--omia-green-dark); }
-
-  /* EXHAUSTED */
-  .exhausted-banner {
-    display: none;
-    background: white; border: 1.5px solid #ddd;
-    border-radius: 16px; padding: 28px 24px;
-    text-align: center; max-width: 340px;
-    margin: 0 auto;
-  }
-  .exhausted-banner.show { display: block; }
-  .exhausted-banner h3 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700; font-size: 18px;
-    color: var(--omia-dark); margin-bottom: 8px;
-  }
-  .exhausted-banner p { font-size: 13px; color: var(--omia-mid); line-height: 1.6; }
-
-  /* SPARKS */
-  .sparks { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 20px; }
-  .spark { position: absolute; border-radius: 50%; opacity: 0; }
-  @keyframes sparkle {
-    0%   { transform: scale(0) translate(0,0); opacity: 1; }
-    100% { transform: scale(1.5) translate(var(--dx),var(--dy)); opacity: 0; }
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--omia-dark); color: #777;
-    text-align: center; padding: 20px 16px;
-    font-size: 11px; letter-spacing: 0.5px; line-height: 1.6;
-  }
-  footer span { color: #aaa; }
+/* FOOTER */
+footer{background:var(--dark);color:#777;text-align:center;
+  padding:20px 16px;font-size:11px;letter-spacing:.5px;line-height:1.6;}
+footer span{color:#aaa;}
 </style>
 </head>
 <body>
@@ -360,12 +192,10 @@
     </div>
     <div class="product-label">Viso</div>
   </div>
-
   <div class="strip-text">
     <h3>Biotecnologia e natura insieme</h3>
     <p>Attivi biotecnologici di origine naturale per prenderti cura di te ogni giorno.</p>
   </div>
-
   <div class="product-card">
     <div class="product-img-wrap">
       <svg viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
@@ -387,7 +217,6 @@
 <div class="game-section">
   <h2><strong>Gratta</strong> e vinci</h2>
   <p class="game-subtitle">Usa il dito o il mouse per grattare il biglietto</p>
-
   <div class="counter-bar">
     <div class="counter-dot"></div>
     <span>Premi disponibili: <span id="wins-left">50</span></span>
@@ -401,9 +230,7 @@
         <canvas id="scratch-canvas"></canvas>
       </div>
     </div>
-
-    <div class="scratch-hint">&#10022;&nbsp; Gratta per scoprire se hai vinto &nbsp;&#10022;</div>
-
+    <div class="scratch-hint">&#10022; Gratta per scoprire se hai vinto &#10022;</div>
     <button class="btn-play" id="btn-play" onclick="newGame()">Gioca</button>
     <div class="play-note" id="play-note">Premi Gioca per iniziare una nuova giocata</div>
     <div class="lose-msg" id="lose-msg">
@@ -431,209 +258,241 @@
 
 <footer>
   <span>OMIA Laboratori Biotech&#8482;</span><br>
-  Concorso a premi riservato all&apos;evento &middot; Max 50 vincitori
+  Concorso riservato all&apos;evento &middot; Max 50 vincitori
 </footer>
 
 <script>
-  const MAX_WINS  = 50;
-  const WIN_EVERY = 10;
+var MAX_WINS  = 50;
+var WIN_EVERY = 10;
+var totalPlays = 0;
+var totalWins  = 0;
+var currentIsWin = false;
+var isPointerDown = false;
+var gameReady = false;
+var revealed  = false;
 
-  let totalPlays = 0;
-  let totalWins  = 0;
-  let currentIsWin = false;
-  let isPointerDown = false;
-  let gameReady = false;
-  let revealed = false;
+var canvas    = document.getElementById('scratch-canvas');
+var ctx       = canvas.getContext('2d');
+var cardEl    = document.getElementById('scratch-card');
+var prizeArea = document.getElementById('prize-area');
+var loseMsg   = document.getElementById('lose-msg');
+var btnPlay   = document.getElementById('btn-play');
+var playNote  = document.getElementById('play-note');
 
-  const canvas    = document.getElementById("scratch-canvas");
-  const ctx       = canvas.getContext("2d");
-  const cardEl    = document.getElementById("scratch-card");
-  const prizeArea = document.getElementById("prize-area");
-  const loseMsg   = document.getElementById("lose-msg");
-  const btnPlay   = document.getElementById("btn-play");
-  const playNote  = document.getElementById("play-note");
+/* ── CANVAS SETUP ── */
+function setupCanvas() {
+  canvas.width  = cardEl.offsetWidth;
+  canvas.height = cardEl.offsetHeight;
 
-  // ── Canvas setup ──────────────────────────────────────────────
-  function setupCanvas() {
-    canvas.width  = cardEl.offsetWidth;
-    canvas.height = cardEl.offsetHeight;
+  var g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  g.addColorStop(0,   '#8ab88e');
+  g.addColorStop(0.5, '#7a9e7e');
+  g.addColorStop(1,   '#5a7a5e');
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.fillStyle = g;
+  ctx.beginPath();
+  ctx.roundRect(0, 0, canvas.width, canvas.height, 20);
+  ctx.fill();
 
-    const g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    g.addColorStop(0,   "#8ab88e");
-    g.addColorStop(0.5, "#7a9e7e");
-    g.addColorStop(1,   "#5a7a5e");
-    ctx.fillStyle = g;
-    ctx.roundRect(0, 0, canvas.width, canvas.height, 20);
-    ctx.fill();
+  /* watermark */
+  ctx.save();
+  ctx.globalAlpha = 0.14;
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 48px Montserrat, Inter, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('OMIA', canvas.width / 2, canvas.height / 2 - 14);
+  ctx.font = '300 9px Inter, sans-serif';
+  ctx.fillText('LABORATORI BIOTECH', canvas.width / 2, canvas.height / 2 + 16);
+  ctx.restore();
 
-    ctx.save();
-    ctx.globalAlpha = 0.15;
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 52px Montserrat, Inter, sans-serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("OMIA", canvas.width/2, canvas.height/2 - 12);
-    ctx.font = "300 10px Inter, sans-serif";
-    ctx.letterSpacing = "4px";
-    ctx.fillText("LABORATORI BIOTECH", canvas.width/2, canvas.height/2 + 18);
-    ctx.restore();
+  /* hint text */
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = 'rgba(255,255,255,0.82)';
+  ctx.font = '500 13px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('\u2714  Gratta qui  \u2714', canvas.width / 2, canvas.height / 2 + 52);
 
-    ctx.fillStyle = "rgba(255,255,255,0.80)";
-    ctx.font = "500 13px Inter, sans-serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("✔  Gratta qui  ✔", canvas.width/2, canvas.height/2 + 52);
+  ctx.globalCompositeOperation = 'source-over';
+  revealed = false;
+}
 
-    ctx.globalCompositeOperation = "source-over";
-    revealed = false;
+/* ── OUTCOME ── */
+function determineOutcome() {
+  if (totalWins >= MAX_WINS) return false;
+  return (totalPlays % WIN_EVERY === WIN_EVERY - 1);
+}
+
+/* ── WIN CODE ── */
+function genCode() {
+  var A = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+  var D = '0123456789';
+  function r(s) { return s[Math.floor(Math.random() * s.length)]; }
+  return r(A) + r(A) + r(D) + r(D) + '-' + r(A) + r(D) + r(A);
+}
+
+/* ── PRIZE AREA ── */
+function setPrize(win) {
+  if (win) {
+    prizeArea.innerHTML =
+      '<div class="prize-icon">&#127873;</div>' +
+      '<div class="prize-text">Hai vinto!</div>' +
+      '<div class="prize-sub">Mostra al team Omia</div>';
+  } else {
+    prizeArea.innerHTML =
+      '<div class="prize-icon">&#127807;</div>' +
+      '<div class="prize-text">Non vinto</div>' +
+      '<div class="prize-sub">Riprova alla prossima</div>';
   }
+}
 
-  // ── Outcome ────────────────────────────────────────────────────
-  function determineOutcome() {
-    if (totalWins >= MAX_WINS) return false;
-    return (totalPlays % WIN_EVERY === WIN_EVERY - 1);
+/* ── NEW GAME ── */
+function newGame() {
+  if (totalWins >= MAX_WINS) {
+    document.getElementById('exhausted-banner').classList.add('show');
+    document.getElementById('game-main').style.display = 'none';
+    return;
   }
+  totalPlays++;
+  currentIsWin = determineOutcome();
+  if (currentIsWin) totalWins++;
+  document.getElementById('wins-left').textContent = Math.max(0, MAX_WINS - totalWins);
 
-  // ── Win code ──────────────────────────────────────────────────
-  function genCode() {
-    const A = "ABCDEFGHJKLMNPQRSTUVWXYZ";
-    const D = "0123456789";
-    const r = s => s[Math.floor(Math.random()*s.length)];
-    return r(A)+r(A)+r(D)+r(D)+"-"+r(A)+r(D)+r(A);
+  loseMsg.style.display = 'none';
+  btnPlay.disabled = true;
+  playNote.textContent = 'Gratta il biglietto per scoprire il risultato!';
+
+  setPrize(currentIsWin);
+  setupCanvas();
+  canvas.style.pointerEvents = 'auto';
+  gameReady = true;
+}
+
+/* ── SCRATCH COORDS ── */
+function getXY(e) {
+  var rect = canvas.getBoundingClientRect();
+  var src  = e.touches ? e.touches[0] : e;
+  return {
+    x: (src.clientX - rect.left) * (canvas.width  / rect.width),
+    y: (src.clientY - rect.top)  * (canvas.height / rect.height)
+  };
+}
+
+/* ── DRAW SCRATCH ── */
+function doScratch(x, y) {
+  ctx.globalCompositeOperation = 'destination-out';
+  ctx.beginPath();
+  ctx.arc(x, y, 36, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+/* ── CHECK REVEAL ── */
+function checkReveal() {
+  if (revealed) return;
+  var d = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  var cleared = 0;
+  for (var i = 3; i < d.length; i += 4) {
+    if (d[i] === 0) cleared++;
   }
-
-  // ── Prize area ────────────────────────────────────────────────
-  function setPrize(win) {
-    prizeArea.innerHTML = win
-      ? "<div class=prize-icon>&#127873;</div><div class=prize-text>Hai vinto!</div><div class=prize-sub>Mostra al team Omia</div>"
-      : "<div class=prize-icon>&#127807;</div><div class=prize-text>Non vinto</div><div class=prize-sub>Riprova alla prossima</div>";
+  if (cleared / (canvas.width * canvas.height) > 0.45) {
+    revealed = true;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    canvas.style.pointerEvents = 'none';
+    revealResult();
   }
+}
 
-  // ── New game ──────────────────────────────────────────────────
-  function newGame() {
-    if (totalWins >= MAX_WINS) {
-      document.getElementById("exhausted-banner").classList.add("show");
-      document.getElementById("game-main").style.display = "none";
-      return;
-    }
-    totalPlays++;
-    currentIsWin = determineOutcome();
-    if (currentIsWin) totalWins++;
-    document.getElementById("wins-left").textContent = Math.max(0, MAX_WINS - totalWins);
+/* ── POINTER EVENTS ── */
+canvas.addEventListener('pointerdown', function(e) {
+  if (!gameReady) return;
+  e.preventDefault();
+  isPointerDown = true;
+  canvas.setPointerCapture(e.pointerId);
+  var p = getXY(e);
+  doScratch(p.x, p.y);
+}, { passive: false });
 
-    loseMsg.style.display = "none";
-    btnPlay.disabled = true;
-    playNote.textContent = "Gratta il biglietto per scoprire il risultato!";
+canvas.addEventListener('pointermove', function(e) {
+  if (!gameReady || !isPointerDown) return;
+  e.preventDefault();
+  var p = getXY(e);
+  doScratch(p.x, p.y);
+  checkReveal();
+}, { passive: false });
 
-    setPrize(currentIsWin);
-    setupCanvas();
-    canvas.style.pointerEvents = "auto";
-    gameReady = true;
-  }
+canvas.addEventListener('pointerup',     function() { isPointerDown = false; });
+canvas.addEventListener('pointercancel', function() { isPointerDown = false; });
 
-  // ── Scratch helpers ───────────────────────────────────────────
-  function getXY(e) {
-    const rect = canvas.getBoundingClientRect();
-    const src  = e.touches ? e.touches[0] : e;
-    return {
-      x: (src.clientX - rect.left) * (canvas.width  / rect.width),
-      y: (src.clientY - rect.top)  * (canvas.height / rect.height)
-    };
-  }
-
-  function doScratch(x, y) {
-    ctx.globalCompositeOperation = "destination-out";
-    ctx.beginPath();
-    ctx.arc(x, y, 34, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  function checkReveal() {
-    if (revealed) return;
-    const d = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-    let cleared = 0;
-    for (let i = 3; i < d.length; i += 4) if (d[i] === 0) cleared++;
-    if (cleared / (canvas.width * canvas.height) > 0.45) {
-      revealed = true;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      canvas.style.pointerEvents = "none";
-      revealResult();
-    }
-  }
-
-  // ── Pointer events (works for touch + mouse) ──────────────────
-  canvas.addEventListener("pointerdown", e => {
-    if (!gameReady) return;
-    e.preventDefault();
-    isPointerDown = true;
-    canvas.setPointerCapture(e.pointerId);
-    const p = getXY(e);
-    doScratch(p.x, p.y);
-  }, { passive: false });
-
-  canvas.addEventListener("pointermove", e => {
-    if (!gameReady || !isPointerDown) return;
-    e.preventDefault();
-    const p = getXY(e);
-    doScratch(p.x, p.y);
-    checkReveal();
-  }, { passive: false });
-
-  canvas.addEventListener("pointerup",   () => { isPointerDown = false; });
-  canvas.addEventListener("pointercancel", () => { isPointerDown = false; });
-
-  // ── Reveal result ─────────────────────────────────────────────
-  function revealResult() {
-    gameReady = false;
-    if (currentIsWin) {
-      spawnSparks();
-      setTimeout(() => {
-        document.getElementById("win-code").textContent = genCode();
-        document.getElementById("modal-overlay").classList.add("show");
-      }, 500);
-    } else {
-      loseMsg.style.display = "block";
-      btnPlay.disabled = false;
-      playNote.textContent = "Riprova! Premi Gioca per un nuovo biglietto.";
-    }
-  }
-
-  function closeModal() {
-    document.getElementById("modal-overlay").classList.remove("show");
+/* ── REVEAL RESULT ── */
+function revealResult() {
+  gameReady = false;
+  if (currentIsWin) {
+    spawnSparks();
+    setTimeout(function() {
+      document.getElementById('win-code').textContent = genCode();
+      document.getElementById('modal-overlay').classList.add('show');
+    }, 500);
+  } else {
+    loseMsg.style.display = 'block';
     btnPlay.disabled = false;
-    playNote.textContent = "Premi Gioca per un nuovo biglietto.";
+    playNote.textContent = 'Riprova! Premi Gioca per un nuovo biglietto.';
   }
+}
 
-  // ── Sparks ────────────────────────────────────────────────────
-  function spawnSparks() {
-    const el = document.getElementById("sparks");
-    el.innerHTML = "";
-    const colors = ["#c8a96e","#7a9e7e","#ffffff","#f0e0b0","#a8c8a0"];
-    for (let i = 0; i < 20; i++) {
-      const s = document.createElement("div");
-      s.className = "spark";
-      const dx = (Math.random()-.5)*160, dy = (Math.random()-.5)*120;
-      const sz = 4 + Math.random()*6;
-      s.style.cssText = ;
-      el.appendChild(s);
-    }
+/* ── CLOSE MODAL ── */
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('show');
+  btnPlay.disabled = false;
+  playNote.textContent = 'Premi Gioca per un nuovo biglietto.';
+}
+
+/* ── SPARKS ── */
+function spawnSparks() {
+  var el = document.getElementById('sparks');
+  el.innerHTML = '';
+  var colors = ['#c8a96e','#7a9e7e','#ffffff','#f0e0b0','#a8c8a0'];
+  for (var i = 0; i < 22; i++) {
+    var s  = document.createElement('div');
+    s.className = 'spark';
+    var tx = Math.round((Math.random() - 0.5) * 160);
+    var ty = Math.round((Math.random() - 0.5) * 120);
+    var sz = Math.round(4 + Math.random() * 6);
+    var cl = colors[Math.floor(Math.random() * colors.length)];
+    var dur = (0.5 + Math.random() * 0.6).toFixed(2);
+    var del = (Math.random() * 0.3).toFixed(2);
+    var lft = Math.round(30 + Math.random() * 40);
+    var top = Math.round(25 + Math.random() * 50);
+    s.style.left       = lft + '%';
+    s.style.top        = top + '%';
+    s.style.width      = sz + 'px';
+    s.style.height     = sz + 'px';
+    s.style.background = cl;
+    s.style.setProperty('--tx', tx + 'px');
+    s.style.setProperty('--ty', ty + 'px');
+    s.style.animation  = 'sparkle ' + dur + 's ease-out ' + del + 's forwards';
+    el.appendChild(s);
   }
+}
 
-  // ── Init placeholder ──────────────────────────────────────────
-  (function() {
-    canvas.width  = cardEl.offsetWidth  || 340;
-    canvas.height = cardEl.offsetHeight || 210;
-    const g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    g.addColorStop(0, "#8ab88e"); g.addColorStop(1, "#5a7a5e");
-    ctx.fillStyle = g;
-    ctx.roundRect(0, 0, canvas.width, canvas.height, 20);
-    ctx.fill();
-    ctx.fillStyle = "rgba(255,255,255,0.72)";
-    ctx.font = "500 14px Inter, sans-serif";
-    ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText("Premi Gioca per iniziare", canvas.width/2, canvas.height/2);
-    canvas.style.pointerEvents = "none";
-  })();
+/* ── INIT PLACEHOLDER ── */
+(function() {
+  canvas.width  = cardEl.offsetWidth  || 340;
+  canvas.height = cardEl.offsetHeight || 210;
+  var g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  g.addColorStop(0, '#8ab88e');
+  g.addColorStop(1, '#5a7a5e');
+  ctx.fillStyle = g;
+  ctx.beginPath();
+  ctx.roundRect(0, 0, canvas.width, canvas.height, 20);
+  ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,0.72)';
+  ctx.font = '500 14px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Premi Gioca per iniziare', canvas.width / 2, canvas.height / 2);
+  canvas.style.pointerEvents = 'none';
+})();
 </script>
 </body>
 </html>
