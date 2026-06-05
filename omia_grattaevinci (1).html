@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Omia Laboratori Biotech – Gratta & Vinci</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;600;700&display=swap");
+
+  :root {
+    --omia-dark: #3d3f42;
+    --omia-mid: #6b6f74;
+    --omia-light: #f5f4f0;
+    --omia-green: #7a9e7e;
+    --omia-green-dark: #5a7a5e;
+    --omia-cream: #f0ede6;
+    --omia-gold: #c8a96e;
+    --omia-white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--omia-light);
+    color: var(--omia-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overscroll-behavior: none;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--omia-white);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e0ddd6;
+    box-shadow: 0 2px 12px rgba(61,63,66,0.06);
+  }
+
+  header img {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--omia-dark) 0%, #4a5240 55%, var(--omia-green-dark) 100%);
+    padding: 36px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width=60 height=60 viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx=30 cy=30 r=4 fill=white fill-opacity=0.03/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--omia-green);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: clamp(24px, 6vw, 36px);
+    color: var(--omia-white);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  .hero h1 strong { font-weight: 700; color: #c8dfc0; }
+  .hero p {
+    color: #b8c4b0;
+    font-size: 13px;
+    font-weight: 300;
+    max-width: 360px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* PRODUCTS STRIP */
+  .products-strip {
+    background: var(--omia-cream);
+    padding: 28px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .product-card { text-align: center; }
+  .product-img-wrap {
+    width: 90px; height: 112px;
+    margin: 0 auto 10px;
+    display: flex; align-items: center; justify-content: center;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(61,63,66,0.10);
+    overflow: hidden; padding: 10px;
+  }
+  .product-img-wrap svg { width: 60px; height: 90px; }
+  .product-label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--omia-mid);
+  }
+  .strip-text { max-width: 200px; text-align: center; }
+  .strip-text h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600; font-size: 15px;
+    color: var(--omia-dark); margin-bottom: 6px; line-height: 1.3;
+  }
+  .strip-text p { font-size: 12px; color: var(--omia-mid); line-height: 1.65; }
+
+  /* GAME SECTION */
+  .game-section {
+    flex: 1;
+    padding: 36px 16px 40px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .game-section h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300; font-size: 22px;
+    letter-spacing: 1px; color: var(--omia-dark);
+    margin-bottom: 4px; text-align: center;
+  }
+  .game-section h2 strong { font-weight: 700; }
+  .game-subtitle {
+    font-size: 12px; color: var(--omia-mid);
+    margin-bottom: 18px; text-align: center; letter-spacing: 0.3px;
+  }
+
+  /* COUNTER */
+  .counter-bar {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 24px;
+    background: white; border-radius: 30px;
+    padding: 9px 22px;
+    box-shadow: 0 2px 10px rgba(61,63,66,0.08);
+    font-size: 13px; color: var(--omia-mid); font-weight: 500;
+  }
+  .counter-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--omia-green); }
+  #wins-left { font-weight: 700; color: var(--omia-green-dark); font-size: 16px; }
+
+  /* SCRATCH CARD */
+  .scratch-wrapper {
+    position: relative;
+    width: min(340px, 92vw);
+    margin-bottom: 20px;
+    touch-action: none;
+  }
+  .scratch-card {
+    width: 100%; height: 210px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #e0eeda 0%, #c8dfc0 100%);
+    position: relative; overflow: hidden;
+    box-shadow: 0 8px 28px rgba(61,63,66,0.15), inset 0 1px 0 rgba(255,255,255,0.5);
+    display: flex; align-items: center; justify-content: center;
+    touch-action: none;
+  }
+  .prize-area {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; pointer-events: none; user-select: none;
+  }
+  .prize-icon { font-size: 46px; line-height: 1; }
+  .prize-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700; font-size: 16px;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--omia-dark);
+  }
+  .prize-sub {
+    font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--omia-mid); font-weight: 500;
+  }
+  #scratch-canvas {
+    position: absolute; top: 0; left: 0;
+    border-radius: 20px;
+    touch-action: none;
+    cursor: crosshair;
+  }
+
+  /* HINT */
+  .scratch-hint {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px; color: var(--omia-mid);
+    letter-spacing: 1px; margin-bottom: 20px;
+    text-transform: uppercase; font-weight: 500;
+    opacity: 0.75;
+  }
+
+  /* BUTTON */
+  .btn-play {
+    background: linear-gradient(135deg, var(--omia-dark) 0%, var(--omia-mid) 100%);
+    color: white; border: none;
+    padding: 15px 44px;
+    border-radius: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600; font-size: 12px;
+    letter-spacing: 3px; text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(61,63,66,0.22);
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    min-height: 50px;
+  }
+  .btn-play:active { transform: scale(0.97); }
+  .btn-play:disabled { opacity: 0.38; cursor: not-allowed; transform: none; }
+  .play-note { font-size: 11px; color: #aaa; text-align: center; letter-spacing: 0.3px; }
+
+  /* LOSE MESSAGE */
+  .lose-msg {
+    display: none; margin-top: 18px; text-align: center;
+    animation: fadeIn 0.5s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .lose-msg p { font-size: 13px; color: var(--omia-mid); line-height: 1.6; }
+  .lose-msg strong { color: var(--omia-dark); font-weight: 600; }
+
+  /* WIN MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(20,25,20,0.78);
+    z-index: 1000; align-items: center; justify-content: center;
+    backdrop-filter: blur(6px); padding: 20px;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: white; border-radius: 24px;
+    padding: 40px 28px 30px;
+    max-width: 380px; width: 100%; text-align: center;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+    animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes modalPop {
+    from { transform: scale(0.72); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  .modal-emoji { font-size: 52px; margin-bottom: 12px; animation: bounce 0.9s ease infinite alternate; }
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-7px); }
+  }
+  .modal-stars { color: var(--omia-gold); font-size: 20px; margin-bottom: 12px; letter-spacing: 4px; }
+  .modal h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800; font-size: clamp(28px, 8vw, 38px);
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--omia-dark); margin-bottom: 8px;
+  }
+  .modal p { font-size: 13px; color: var(--omia-mid); line-height: 1.7; margin-bottom: 20px; }
+  .win-code-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--omia-mid); margin-bottom: 6px;
+  }
+  .win-code {
+    background: var(--omia-cream);
+    border: 1.5px dashed var(--omia-green);
+    border-radius: 12px; padding: 14px 20px;
+    margin-bottom: 22px;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(20px, 6vw, 26px);
+    font-weight: 700; letter-spacing: 6px;
+    color: var(--omia-green-dark);
+  }
+  .btn-close {
+    background: var(--omia-green); color: white;
+    border: none; padding: 14px 40px;
+    border-radius: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600; font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; width: 100%;
+    min-height: 50px; -webkit-appearance: none;
+    transition: background 0.2s;
+  }
+  .btn-close:active { background: var(--omia-green-dark); }
+
+  /* EXHAUSTED */
+  .exhausted-banner {
+    display: none;
+    background: white; border: 1.5px solid #ddd;
+    border-radius: 16px; padding: 28px 24px;
+    text-align: center; max-width: 340px;
+    margin: 0 auto;
+  }
+  .exhausted-banner.show { display: block; }
+  .exhausted-banner h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700; font-size: 18px;
+    color: var(--omia-dark); margin-bottom: 8px;
+  }
+  .exhausted-banner p { font-size: 13px; color: var(--omia-mid); line-height: 1.6; }
+
+  /* SPARKS */
+  .sparks { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 20px; }
+  .spark { position: absolute; border-radius: 50%; opacity: 0; }
+  @keyframes sparkle {
+    0%   { transform: scale(0) translate(0,0); opacity: 1; }
+    100% { transform: scale(1.5) translate(var(--dx),var(--dy)); opacity: 0; }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--omia-dark); color: #777;
+    text-align: center; padding: 20px 16px;
+    font-size: 11px; letter-spacing: 0.5px; line-height: 1.6;
+  }
+  footer span { color: #aaa; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="data:image/png;base64,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" alt="Omia Laboratori Biotech">
+</header>
+
+<div class="hero">
+  <div class="hero-badge">Evento Speciale</div>
+  <h1>Prova la <strong>natura</strong><br>e vinci un gadget</h1>
+  <p>Gratta il biglietto, scopri se sei tra i fortunati e ritira il tuo premio al nostro stand.</p>
+</div>
+
+<div class="products-strip">
+  <div class="product-card">
+    <div class="product-img-wrap">
+      <svg viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="8" width="40" height="68" rx="8" fill="#d4e6cc"/>
+        <rect x="12" y="10" width="36" height="50" rx="6" fill="#eaf3e6"/>
+        <rect x="14" y="58" width="32" height="16" rx="4" fill="#7a9e7e"/>
+        <text x="30" y="69" text-anchor="middle" font-size="7" fill="white" font-family="Inter" font-weight="600">OMIA</text>
+        <ellipse cx="30" cy="8" rx="12" ry="4" fill="#c0d4b8"/>
+        <ellipse cx="30" cy="6" rx="7" ry="4" fill="#8ab88e"/>
+        <rect x="24" y="2" width="12" height="5" rx="2" fill="#6a986e"/>
+        <ellipse cx="20" cy="28" rx="5" ry="9" fill="#7a9e7e" opacity="0.35" transform="rotate(-20 20 28)"/>
+        <ellipse cx="40" cy="24" rx="4" ry="8" fill="#7a9e7e" opacity="0.25" transform="rotate(15 40 24)"/>
+      </svg>
+    </div>
+    <div class="product-label">Viso</div>
+  </div>
+
+  <div class="strip-text">
+    <h3>Biotecnologia e natura insieme</h3>
+    <p>Attivi biotecnologici di origine naturale per prenderti cura di te ogni giorno.</p>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img-wrap">
+      <svg viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="24" width="32" height="58" rx="8" fill="#c8dfc0"/>
+        <rect x="16" y="26" width="28" height="42" rx="6" fill="#e0eeda"/>
+        <rect x="24" y="8" width="12" height="18" rx="4" fill="#8ab88e"/>
+        <rect x="20" y="6" width="20" height="6" rx="3" fill="#7a9e7e"/>
+        <line x1="30" y1="6" x2="44" y2="2" stroke="#7a9e7e" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="44" cy="2" r="3" fill="#7a9e7e"/>
+        <rect x="18" y="46" width="24" height="18" rx="4" fill="#7a9e7e"/>
+        <text x="30" y="55" text-anchor="middle" font-size="6" fill="white" font-family="Inter" font-weight="600">OMIA</text>
+        <text x="30" y="62" text-anchor="middle" font-size="5" fill="#c8dfc0" font-family="Inter">CORPO</text>
+      </svg>
+    </div>
+    <div class="product-label">Corpo</div>
+  </div>
+</div>
+
+<div class="game-section">
+  <h2><strong>Gratta</strong> e vinci</h2>
+  <p class="game-subtitle">Usa il dito o il mouse per grattare il biglietto</p>
+
+  <div class="counter-bar">
+    <div class="counter-dot"></div>
+    <span>Premi disponibili: <span id="wins-left">50</span></span>
+  </div>
+
+  <div id="game-main">
+    <div class="scratch-wrapper" id="scratch-wrapper">
+      <div class="scratch-card" id="scratch-card">
+        <div class="prize-area" id="prize-area"></div>
+        <div class="sparks" id="sparks"></div>
+        <canvas id="scratch-canvas"></canvas>
+      </div>
+    </div>
+
+    <div class="scratch-hint">&#10022;&nbsp; Gratta per scoprire se hai vinto &nbsp;&#10022;</div>
+
+    <button class="btn-play" id="btn-play" onclick="newGame()">Gioca</button>
+    <div class="play-note" id="play-note">Premi Gioca per iniziare una nuova giocata</div>
+    <div class="lose-msg" id="lose-msg">
+      <p><strong>Non hai vinto questa volta.</strong><br>Riprova e buona fortuna!</p>
+    </div>
+  </div>
+
+  <div class="exhausted-banner" id="exhausted-banner">
+    <h3>Premi esauriti</h3>
+    <p>Tutti i 50 premi sono stati assegnati.<br>Grazie per aver partecipato!</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-emoji">&#127881;</div>
+    <div class="modal-stars">&#9733;&#9733;&#9733;</div>
+    <h2>Hai Vinto!</h2>
+    <p>Mostra questo schermo al team Omia per ritirare il tuo gadget.</p>
+    <div class="win-code-label">Codice vincita</div>
+    <div class="win-code" id="win-code">---</div>
+    <button class="btn-close" onclick="closeModal()">Ho mostrato al team</button>
+  </div>
+</div>
+
+<footer>
+  <span>OMIA Laboratori Biotech&#8482;</span><br>
+  Concorso a premi riservato all&apos;evento &middot; Max 50 vincitori
+</footer>
+
+<script>
+  const MAX_WINS  = 50;
+  const WIN_EVERY = 10;
+
+  let totalPlays = 0;
+  let totalWins  = 0;
+  let currentIsWin = false;
+  let isPointerDown = false;
+  let gameReady = false;
+  let revealed = false;
+
+  const canvas    = document.getElementById("scratch-canvas");
+  const ctx       = canvas.getContext("2d");
+  const cardEl    = document.getElementById("scratch-card");
+  const prizeArea = document.getElementById("prize-area");
+  const loseMsg   = document.getElementById("lose-msg");
+  const btnPlay   = document.getElementById("btn-play");
+  const playNote  = document.getElementById("play-note");
+
+  // ── Canvas setup ──────────────────────────────────────────────
+  function setupCanvas() {
+    canvas.width  = cardEl.offsetWidth;
+    canvas.height = cardEl.offsetHeight;
+
+    const g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    g.addColorStop(0,   "#8ab88e");
+    g.addColorStop(0.5, "#7a9e7e");
+    g.addColorStop(1,   "#5a7a5e");
+    ctx.fillStyle = g;
+    ctx.roundRect(0, 0, canvas.width, canvas.height, 20);
+    ctx.fill();
+
+    ctx.save();
+    ctx.globalAlpha = 0.15;
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 52px Montserrat, Inter, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("OMIA", canvas.width/2, canvas.height/2 - 12);
+    ctx.font = "300 10px Inter, sans-serif";
+    ctx.letterSpacing = "4px";
+    ctx.fillText("LABORATORI BIOTECH", canvas.width/2, canvas.height/2 + 18);
+    ctx.restore();
+
+    ctx.fillStyle = "rgba(255,255,255,0.80)";
+    ctx.font = "500 13px Inter, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("✔  Gratta qui  ✔", canvas.width/2, canvas.height/2 + 52);
+
+    ctx.globalCompositeOperation = "source-over";
+    revealed = false;
+  }
+
+  // ── Outcome ────────────────────────────────────────────────────
+  function determineOutcome() {
+    if (totalWins >= MAX_WINS) return false;
+    return (totalPlays % WIN_EVERY === WIN_EVERY - 1);
+  }
+
+  // ── Win code ──────────────────────────────────────────────────
+  function genCode() {
+    const A = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+    const D = "0123456789";
+    const r = s => s[Math.floor(Math.random()*s.length)];
+    return r(A)+r(A)+r(D)+r(D)+"-"+r(A)+r(D)+r(A);
+  }
+
+  // ── Prize area ────────────────────────────────────────────────
+  function setPrize(win) {
+    prizeArea.innerHTML = win
+      ? "<div class=prize-icon>&#127873;</div><div class=prize-text>Hai vinto!</div><div class=prize-sub>Mostra al team Omia</div>"
+      : "<div class=prize-icon>&#127807;</div><div class=prize-text>Non vinto</div><div class=prize-sub>Riprova alla prossima</div>";
+  }
+
+  // ── New game ──────────────────────────────────────────────────
+  function newGame() {
+    if (totalWins >= MAX_WINS) {
+      document.getElementById("exhausted-banner").classList.add("show");
+      document.getElementById("game-main").style.display = "none";
+      return;
+    }
+    totalPlays++;
+    currentIsWin = determineOutcome();
+    if (currentIsWin) totalWins++;
+    document.getElementById("wins-left").textContent = Math.max(0, MAX_WINS - totalWins);
+
+    loseMsg.style.display = "none";
+    btnPlay.disabled = true;
+    playNote.textContent = "Gratta il biglietto per scoprire il risultato!";
+
+    setPrize(currentIsWin);
+    setupCanvas();
+    canvas.style.pointerEvents = "auto";
+    gameReady = true;
+  }
+
+  // ── Scratch helpers ───────────────────────────────────────────
+  function getXY(e) {
+    const rect = canvas.getBoundingClientRect();
+    const src  = e.touches ? e.touches[0] : e;
+    return {
+      x: (src.clientX - rect.left) * (canvas.width  / rect.width),
+      y: (src.clientY - rect.top)  * (canvas.height / rect.height)
+    };
+  }
+
+  function doScratch(x, y) {
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.beginPath();
+    ctx.arc(x, y, 34, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function checkReveal() {
+    if (revealed) return;
+    const d = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    let cleared = 0;
+    for (let i = 3; i < d.length; i += 4) if (d[i] === 0) cleared++;
+    if (cleared / (canvas.width * canvas.height) > 0.45) {
+      revealed = true;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      canvas.style.pointerEvents = "none";
+      revealResult();
+    }
+  }
+
+  // ── Pointer events (works for touch + mouse) ──────────────────
+  canvas.addEventListener("pointerdown", e => {
+    if (!gameReady) return;
+    e.preventDefault();
+    isPointerDown = true;
+    canvas.setPointerCapture(e.pointerId);
+    const p = getXY(e);
+    doScratch(p.x, p.y);
+  }, { passive: false });
+
+  canvas.addEventListener("pointermove", e => {
+    if (!gameReady || !isPointerDown) return;
+    e.preventDefault();
+    const p = getXY(e);
+    doScratch(p.x, p.y);
+    checkReveal();
+  }, { passive: false });
+
+  canvas.addEventListener("pointerup",   () => { isPointerDown = false; });
+  canvas.addEventListener("pointercancel", () => { isPointerDown = false; });
+
+  // ── Reveal result ─────────────────────────────────────────────
+  function revealResult() {
+    gameReady = false;
+    if (currentIsWin) {
+      spawnSparks();
+      setTimeout(() => {
+        document.getElementById("win-code").textContent = genCode();
+        document.getElementById("modal-overlay").classList.add("show");
+      }, 500);
+    } else {
+      loseMsg.style.display = "block";
+      btnPlay.disabled = false;
+      playNote.textContent = "Riprova! Premi Gioca per un nuovo biglietto.";
+    }
+  }
+
+  function closeModal() {
+    document.getElementById("modal-overlay").classList.remove("show");
+    btnPlay.disabled = false;
+    playNote.textContent = "Premi Gioca per un nuovo biglietto.";
+  }
+
+  // ── Sparks ────────────────────────────────────────────────────
+  function spawnSparks() {
+    const el = document.getElementById("sparks");
+    el.innerHTML = "";
+    const colors = ["#c8a96e","#7a9e7e","#ffffff","#f0e0b0","#a8c8a0"];
+    for (let i = 0; i < 20; i++) {
+      const s = document.createElement("div");
+      s.className = "spark";
+      const dx = (Math.random()-.5)*160, dy = (Math.random()-.5)*120;
+      const sz = 4 + Math.random()*6;
+      s.style.cssText = ;
+      el.appendChild(s);
+    }
+  }
+
+  // ── Init placeholder ──────────────────────────────────────────
+  (function() {
+    canvas.width  = cardEl.offsetWidth  || 340;
+    canvas.height = cardEl.offsetHeight || 210;
+    const g = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    g.addColorStop(0, "#8ab88e"); g.addColorStop(1, "#5a7a5e");
+    ctx.fillStyle = g;
+    ctx.roundRect(0, 0, canvas.width, canvas.height, 20);
+    ctx.fill();
+    ctx.fillStyle = "rgba(255,255,255,0.72)";
+    ctx.font = "500 14px Inter, sans-serif";
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("Premi Gioca per iniziare", canvas.width/2, canvas.height/2);
+    canvas.style.pointerEvents = "none";
+  })();
+</script>
+</body>
+</html>
